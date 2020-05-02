@@ -1,10 +1,25 @@
 ﻿@model IEnumerable<LibraryManagement1.ViewModel.CustomerViewModel>
-
-    <ul>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Borrowed books count</th>
+            <th>Edit customer</th>
+            <th>Delete customer</th>
+        </tr>
+    </thead>
+    <tbody>
         @foreach (var customerVM in Model)
         {
-            <li> Customer : @customerVM.Customer.Name --- BookCount : @customerVM.BookCount</li>
-            @*make sure viewmodel.model.property @customerVM.Customer*@
-        }
+            <tr>
+                <td>@customerVM.Customer.CustomerId</td>
+                <td>@customerVM.Customer.Name</td>
+                <td>@customerVM.BookCount</td>
+                <td><a class="btn btn-info" asp-area="" asp-controller="Customer" asp-action="Update" asp-route-id="@customerVM.Customer.CustomerId">Edit</a></td>
+                <td><a class="btn btn-danger" asp-area="" asp-controller="Customer" asp-action="Delete" asp-route-id="@customerVM.Customer.CustomerId">Delete</a></td>
 
-    </ul>
+            </tr>
+        }
+    </tbody>
+</table>
