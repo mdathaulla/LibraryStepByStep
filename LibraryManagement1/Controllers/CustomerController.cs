@@ -56,6 +56,22 @@ namespace LibraryManagement1.Controllers
             _customerRepository.Create(customer);
             return RedirectToAction("List");
         }
+        public IActionResult Update(int id)
+        {
+            var customer = _customerRepository.GetById(id);
+            return View(customer);
+        }
+
+        [HttpPost]
+        public IActionResult Update(Customer customer)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(customer);
+            }
+            _customerRepository.Update(customer);
+            return RedirectToAction("List");
+        }
 
     }
 }
