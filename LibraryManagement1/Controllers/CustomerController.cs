@@ -18,6 +18,7 @@ namespace LibraryManagement1.Controllers
             _customerRepository = customerRepository;
             _bookRepository = bookRepository;
         }
+        [Route("Customer")]
         public IActionResult List()
         {
             var customerVM = new List<CustomerViewModel>();

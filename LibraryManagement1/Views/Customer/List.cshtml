@@ -1,0 +1,10 @@
+﻿@model IEnumerable<LibraryManagement1.ViewModel.CustomerViewModel>
+
+    <ul>
+        @foreach (var customerVM in Model)
+        {
+            <li> Customer : @customerVM.Customer.Name --- BookCount : @customerVM.BookCount</li>
+            @*make sure viewmodel.model.property @customerVM.Customer*@
+        }
+
+    </ul>
